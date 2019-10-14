@@ -65,6 +65,11 @@
       <DependentUpon>CreatorMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +90,18 @@
     <Compile Include="TechnicianMenu.Designer.cs">
       <DependentUpon>TechnicianMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangePassCr.resx">
+      <DependentUpon>ChangePassCr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassSp.resx">
+      <DependentUpon>ChangePassSp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatorMenu.resx">
+      <DependentUpon>CreatorMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -94,6 +111,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SpecialistMenu.resx">
+      <DependentUpon>SpecialistMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TechnicianMenu.resx">
+      <DependentUpon>TechnicianMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dbDataSet.xsc">
+      <DependentUpon>dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbDataSet.xss">
+      <DependentUpon>dbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

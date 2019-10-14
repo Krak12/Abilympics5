@@ -8,5 +8,9 @@ namespace Abilympics5
 {
     class Data
     {
+        public static dbDataSet.WorkersRow UserAutorized;
+        public static long UserID;
+        public static string ChangePassCr;
+        public static string ChangePassSp;
     }
 }

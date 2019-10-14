@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // TechnicianMenu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 38F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "TechnicianMenu";
+            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.Name = "TechnicianMenu";
+            this.Text = "Меню техника";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
