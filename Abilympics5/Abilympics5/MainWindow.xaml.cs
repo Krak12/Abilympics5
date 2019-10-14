@@ -27,7 +27,7 @@ namespace Abilympics5
 
         private void CheckBox1_Checked(object sender, RoutedEventArgs e)
         {
-            passwordBox1.;
+            passwordBox1.Visibility = Visibility.Visible;
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
