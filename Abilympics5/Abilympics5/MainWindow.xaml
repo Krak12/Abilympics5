@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" FontSize="20" FontFamily="Comic Sans MS">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="551*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Авторизация" Grid.Column="1" HorizontalAlignment="Left" Margin="146,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.079,1.192"/>
+        <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="241" Background="Blue">
+            <Image Height="169" VerticalAlignment="Top" Source="D:\Снимок.PNG"/>
+        </Grid>
+        <Label Content="Для продолжения работы, пожалуйста, авторизируйтесь" Grid.Column="1" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.342,0.269" FontSize="14"/>
+        <Label Content="Логин" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.717,0.553"/>
+        <Label Content="Пароль" Grid.Column="1" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.45,-0.184"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" RenderTransformOrigin="1.883,1.174"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.508,0.13"/>
+        <CheckBox Content="Показать пароль&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="270,236,0,0" VerticalAlignment="Top" FontSize="14" Height="19"/>
+        <CheckBox Content="Запомнить меня" Grid.Column="1" HorizontalAlignment="Left" Margin="209,269,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button Content="Вход" Grid.Column="1" HorizontalAlignment="Left" Margin="146,302,0,0" VerticalAlignment="Top" Width="134" Background="White" RenderTransformOrigin="0.853,0.688"/>
+
     </Grid>
 </Window>
