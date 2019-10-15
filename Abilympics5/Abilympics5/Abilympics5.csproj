@@ -59,6 +59,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ChangePassCr.xaml.cs">
+      <DependentUpon>ChangePassCr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassSp.xaml.cs">
+      <DependentUpon>ChangePassSp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreatorMenu.xaml.cs">
+      <DependentUpon>CreatorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,6 +76,12 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialistMenu.xaml.cs">
+      <DependentUpon>SpecialistMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TechnicianMenu.xaml.cs">
+      <DependentUpon>TechnicianMenu.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +122,27 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ChangePassCr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangePassSp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreatorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpecialistMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TechnicianMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,121 @@
+﻿<Window x:Class="Abilympics5.CreatorMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abilympics5"
+        mc:Ignorable="d"
+        Title="CreatorMenu"  Height="350" Width="900" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:dbDataSet x:Key="dbDataSet"/>
+        <CollectionViewSource x:Key="ordersViewSource" Source="{Binding Orders, Source={StaticResource dbDataSet}}"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="226"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Blue" Margin="0,0,5,0">
+
+            <StackPanel>
+                <Image Source="D:\Снимок.PNG" Margin="0,0,1,0" VerticalAlignment="Top"/>
+                <Button Name="Button1" Content="Мои заявки" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button1_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button2" Content="Новая заявка" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button2_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button3" Content="Мой профиль" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button3_Click" Margin="0,40,0,0" MinWidth="85"/>
+                <Button Name="Button4" Content="Выход" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button4_Click" Margin="0,10,0,0" MinWidth="85"/>
+            </StackPanel>
+
+        </Grid>
+        
+        <StackPanel Orientation="Vertical" Grid.Column="1" DataContext="{StaticResource ordersViewSource}">
+            <TabControl Name="TabControl1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TabItem Name="TabPage1">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3">Мои заявки</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label1" Content="Мои заявки" HorizontalAlignment="Center" Margin="10"/>
+                            <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn x:Name="creatorColumn" Binding="{Binding Creator}" Header="Создатель" Width="164"/>
+                                    <DataGridTextColumn x:Name="typeServiceColumn" Binding="{Binding TypeService}" Header="Тема" Width="164"/>
+                                    <DataGridTemplateColumn x:Name="createDateColumn" Header="Дата создания" Width="164">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <DatePicker SelectedDate="{Binding CreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn x:Name="endDateColumn" Header="Дата оклончания" Width="164">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Name="TabPage2">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3">Новая заявка</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label2" Content="Новая заявка" HorizontalAlignment="Center" Margin="10"/>
+                            <Label Name="label3" Content="Тема" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0"/>
+                            <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" Margin="10,0" MinWidth="150"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label Name="label4" Content="Создатель" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,210,0"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Label Name="label5" Content="Дата создания" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,210,0"/>
+                                </Grid>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="150"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox Name="TextBox1" HorizontalAlignment="Stretch" Margin="100,10,50,0" MinWidth="150"/>
+                                </Grid>
+                            </Grid>
+                            
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Name="TabPage3">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3">Мой профиль</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label" Content="Мой профиль" HorizontalAlignment="Center" Margin="10"/>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+        
+    </Grid>
+</Window>
