@@ -1,28 +1,39 @@
-﻿<Window x:Class="Abilympics5.MainWindow"
+﻿<Window x:Class="Abilympics5.WindowMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="673.734" FontSize="20" FontFamily="Comic Sans MS">
-    <Grid Margin="0,0,2,0">
+        Title="MainWindow" Height="450" Width="590" FontFamily="Comic Sans MS">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="241"/>
-            <ColumnDefinition Width="551"/>
+            <ColumnDefinition Width="226"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Content="Авторизация" Grid.Column="1" HorizontalAlignment="Left" Margin="146,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.079,1.192"/>
-        <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="241" Background="Blue">
-            <Image VerticalAlignment="Top" Source="D:\c#\Снимок.PNG"/>
-        </Grid>
-        <Label Content="Для продолжения работы, пожалуйста, авторизируйтесь" Grid.Column="1" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.342,0.269" FontSize="14"/>
-        <Label Content="Логин" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.717,0.553"/>
-        <Label Content="Пароль" Grid.Column="1" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.45,-0.184"/>
-        <CheckBox x:Name="checkBox1" Content="Показать пароль" Grid.Column="1" HorizontalAlignment="Left" Margin="270,253,0,0" VerticalAlignment="Top" FontSize="14" Checked="CheckBox1_Checked"/>
-        <CheckBox x:Name="checkBox2" Content="Запомнить меня" Grid.Column="1" HorizontalAlignment="Left" Margin="208,296,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Button x:Name="Button1" Content="Вход" Grid.Column="1" HorizontalAlignment="Left" Margin="146,329,0,0" VerticalAlignment="Top" Background="White" RenderTransformOrigin="0.853,0.688" Width="134" Click="Button1_Click"/>
-        <PasswordBox x:Name="passwordBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="255" Height="37" RenderTransformOrigin="0.467,-1.893"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="10,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255"/>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Blue" Margin="0,0,5,0"/>
+        <Image Source="D:\Снимок.PNG" Margin="0,0,4,0" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <Label Name="label1" Content="Авторизация" HorizontalAlignment="Center" Margin="10"/>
+            <TextBlock TextWrapping="Wrap" Name="label2" Text="Для продолжения работы, пожалуйста, авторизируйтесь" HorizontalAlignment="Center" Margin="10,0"/>
+            <Label Name="label3" Content="Логин" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0"/>
+            <TextBox Name="TextBox1" HorizontalAlignment="Stretch" Margin="10,0" MinWidth="150"/>
+            <Label Name="label4" Content="Пароль" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0"/>
+            <Grid Margin="10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <PasswordBox Name="PasswordBox1" HorizontalAlignment="Stretch" MinWidth="150" Visibility="Visible"/>
+                    <TextBox Name="TextBox2" HorizontalAlignment="Stretch" MinWidth="150" Visibility="Hidden"/>
+                </Grid>
+                <CheckBox Grid.Column="1" Name="ShowPass" IsChecked="False" Margin="10,0,0,0" Content="Показать пароль"/>
+            </Grid>
+            <CheckBox Name="CheckBox2" Content="Запомнить меня" IsChecked="False" HorizontalAlignment="Right" Margin="0,8,70,8"/>
+            <Button Name="Button1" Content="Вход" HorizontalAlignment="Center" Background="White"/>
+        </StackPanel>
 
     </Grid>
 </Window>
