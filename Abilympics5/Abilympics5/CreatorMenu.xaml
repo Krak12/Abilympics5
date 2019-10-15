@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="CreatorMenu"  Height="350" Width="900" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+        Title="CreatorMenu"  Height="450" Width="900" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
     <Window.Resources>
         <local:dbDataSet x:Key="dbDataSet"/>
         <CollectionViewSource x:Key="ordersViewSource" Source="{Binding Orders, Source={StaticResource dbDataSet}}"/>
@@ -92,13 +92,16 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
-                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="150"/>
+                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="250"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
-                                    <TextBox Name="TextBox1" HorizontalAlignment="Stretch" Margin="100,10,50,0" MinWidth="150"/>
+                                    <TextBox Name="TextBox1" HorizontalAlignment="Stretch" Margin="10,10,10,0" MinWidth="290"/>
                                 </Grid>
                             </Grid>
-                            
+                            <Label Name="label6" Content="Описание проблемы" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10"/>
+                            <ListBox Name="ListBox1" HorizontalAlignment="Stretch" Height="140" Margin="10,0,10,0"/>
+                            <Button Name="Button5" Content="Отправить" HorizontalAlignment="Right" Background="White" Click="Button5_Click" Margin="0,10,10,0"/>
+
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>
