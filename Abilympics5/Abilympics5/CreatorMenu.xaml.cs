@@ -35,5 +35,36 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource ordersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ordersViewSource")));
             ordersViewSource.View.MoveCurrentToFirst();
         }
+
+        // переходы по tabPage
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            TabControl1.SelectedIndex = 0;
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            TabControl1.SelectedIndex = 1;
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            TabControl1.SelectedIndex = 2;
+        }
+
+        // закрытие формы
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        // переход на форму ChangePassCr
+        private void Button6_Click(object sender, RoutedEventArgs e)
+        {
+            Window cpc = new ChangePassCr();
+            Hide();
+            cpc.ShowDialog();
+            Show();
+        }
     }
 }

@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="SpecialistMenu" Height="450" Width="800">
+        Title="SpecialistMenu" Height="450" Width="900" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="226"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Blue" Margin="0,0,5,0">
+
+            <StackPanel>
+                <Image Source="D:\Снимок.PNG" Margin="0,0,1,0" VerticalAlignment="Top"/>
+                <Button Name="Button1" Content="Мои заявки" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button1_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button2" Content="Новая заявка" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button2_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button3" Content="Мой профиль" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button3_Click" Margin="0,140,0,0" MinWidth="85"/>
+                <Button Name="Button4" Content="Выход" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button4_Click" Margin="0,10,0,0" MinWidth="85"/>
+            </StackPanel>
+
+            
+        </Grid>
         
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <TabControl Name="TabControl1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                
+            </TabControl>
+        </StackPanel>
     </Grid>
 </Window>
