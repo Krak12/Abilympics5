@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="CreatorMenu"  Height="450" Width="900" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+        Title="CreatorMenu"  Height="470" Width="920" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
     <Window.Resources>
         <local:dbDataSet x:Key="dbDataSet"/>
         <CollectionViewSource x:Key="ordersViewSource" Source="{Binding Orders, Source={StaticResource dbDataSet}}"/>
@@ -34,7 +34,6 @@
                 <TabItem Name="TabPage1">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3">Мои заявки</TextBlock>
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>
@@ -42,16 +41,16 @@
                             <Label Name="label1" Content="Мои заявки" HorizontalAlignment="Center" Margin="10"/>
                             <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn x:Name="creatorColumn" Binding="{Binding Creator}" Header="Создатель" Width="164"/>
-                                    <DataGridTextColumn x:Name="typeServiceColumn" Binding="{Binding TypeService}" Header="Тема" Width="164"/>
-                                    <DataGridTemplateColumn x:Name="createDateColumn" Header="Дата создания" Width="164">
+                                    <DataGridTextColumn x:Name="creatorColumn" Binding="{Binding Creator}" Header="Создатель" Width="169"/>
+                                    <DataGridTextColumn x:Name="typeServiceColumn" Binding="{Binding TypeService}" Header="Тема" Width="169"/>
+                                    <DataGridTemplateColumn x:Name="createDateColumn" Header="Дата создания" Width="169">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <DatePicker SelectedDate="{Binding CreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn x:Name="endDateColumn" Header="Дата оклончания" Width="164">
+                                    <DataGridTemplateColumn x:Name="endDateColumn" Header="Дата оклончания" Width="169">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
@@ -66,7 +65,6 @@
                 <TabItem Name="TabPage2">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3">Новая заявка</TextBlock>
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>
@@ -99,7 +97,7 @@
                                 </Grid>
                             </Grid>
                             <Label Name="label6" Content="Описание проблемы" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10"/>
-                            <ListBox Name="ListBox1" HorizontalAlignment="Stretch" Height="140" Margin="10,0,10,0"/>
+                            <ListBox Name="ListBox1" HorizontalAlignment="Stretch" Height="180" Margin="10,0,10,0"/>
                             <Button Name="Button5" Content="Отправить" HorizontalAlignment="Right" Background="White" Margin="0,10,10,0"/>
 
                         </StackPanel>
@@ -108,7 +106,6 @@
                 <TabItem Name="TabPage3">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3">Мой профиль</TextBlock>
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>

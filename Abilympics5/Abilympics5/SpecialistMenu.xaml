@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="SpecialistMenu" Height="450" Width="900" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+        Title="SpecialistMenu" Height="470" Width="920" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:dbDataSet x:Key="dbDataSet"/>
+        <CollectionViewSource x:Key="ordersViewSource" Source="{Binding Orders, Source={StaticResource dbDataSet}}"/>
+        <CollectionViewSource x:Key="workersViewSource" Source="{Binding Workers, Source={StaticResource dbDataSet}}"/>
+    </Window.Resources>
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -17,19 +22,241 @@
 
             <StackPanel>
                 <Image Source="D:\Снимок.PNG" Margin="0,0,1,0" VerticalAlignment="Top"/>
-                <Button Name="Button1" Content="Мои заявки" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button1_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button1" Content="Заявки" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button1_Click" Margin="0,10,0,0" MinWidth="85"/>
                 <Button Name="Button2" Content="Новая заявка" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button2_Click" Margin="0,10,0,0" MinWidth="85"/>
-                <Button Name="Button3" Content="Мой профиль" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button3_Click" Margin="0,140,0,0" MinWidth="85"/>
-                <Button Name="Button4" Content="Выход" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button4_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button3" Content="Сотрудники" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button3_Click" Margin="0,10,0,0" MinWidth="85"/>
+                <Button Name="Button4" Content="Мой профиль" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button4_Click" Margin="0,140,0,0" MinWidth="85"/>
+                <Button Name="Button5" Content="Выход" HorizontalAlignment="Center" Background="Blue" Foreground="White" Click="Button5_Click" Margin="0,10,0,0" MinWidth="85"/>
             </StackPanel>
 
-            
+
         </Grid>
-        
-        <StackPanel Orientation="Vertical" Grid.Column="1">
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" DataContext="{StaticResource ordersViewSource}">
             <TabControl Name="TabControl1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                
+                <TabItem Name="TabPage1">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label1" Content="Мои заявки" HorizontalAlignment="Center" Margin="10"/>
+                            <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn x:Name="creatorColumn" Binding="{Binding Creator}" Header="Создатель" Width="169"/>
+                                    <DataGridTextColumn x:Name="typeServiceColumn" Binding="{Binding TypeService}" Header="Тема" Width="169"/>
+                                    <DataGridTemplateColumn x:Name="createDateColumn" Header="Дата создания" Width="169">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <DatePicker SelectedDate="{Binding CreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn x:Name="endDateColumn" Header="Дата окончания" Width="169">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Name="TabPage2">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label2" Content="Новая заявка" HorizontalAlignment="Center" Margin="10"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label Name="label3" Content="ID заявки" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" Margin="10,0,10,0" MinWidth="250" MinHeight="30" MaxHeight="30"/>
+                                </Grid>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label Name="label4" Content="Техник" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,0,10,0" MinWidth="250" MinHeight="30" MaxHeight="30"/>
+                                </Grid>
+                            </Grid>
+                            <Button Name="Button6" Content="Отправить" HorizontalAlignment="Right" Background="White" Margin="0,10,10,0"/>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Name="TabPage3">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label5" Content="Сотрудники" HorizontalAlignment="Center" Margin="10"/>
+                            <DataGrid x:Name="workersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource workersViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn x:Name="typeAccColumn" Binding="{Binding TypeAcc}" Header="Тип аккаунта" Width="169"/>
+                                    <DataGridTextColumn x:Name="surnameColumn" Binding="{Binding Surname}" Header="Фамилия" Width="169"/>
+                                    <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Имя" Width="169"/>
+                                    <DataGridTextColumn x:Name="patronymicColumn" Binding="{Binding Patronymic}" Header="Отчество" Width="169"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Name="TabPage4">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Name="label6" Content="Мой профиль" HorizontalAlignment="Center" Margin="10"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label7" Content="Тип аккаунта" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox1" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Label Name="label8" Content="Настройки" HorizontalAlignment="Stretch" Margin="0,10,10,0"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label9" Content="Логин" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox2" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Rectangle Name="Panel1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,0,0" Height="10" Fill="Black"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label10" Content="Пароль" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox43" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Button Name="Button7" Content="Изменить пароль" HorizontalAlignment="Stretch" Background="White" Click="Button7_Click" Margin="0,10,10,0"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label11" Content="Фамилия" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox4" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Button Name="Button8" Content="Редактировать пароль" HorizontalAlignment="Stretch" Background="White" Margin="0,10,10,0"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label12" Content="Имя" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox5" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label13" Content="Отчество" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox6" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="320"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Name="label14" Content="Телефон" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Name="TextBox7" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                    </Grid>
+                                </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="320"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label Name="label15" Content="Email" HorizontalAlignment="Stretch" Margin="10,10"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox Name="TextBox10" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
             </TabControl>
         </StackPanel>
+        
     </Grid>
 </Window>
