@@ -18,7 +18,8 @@ namespace Abilympics5
     /// Логика взаимодействия для SpecialistMenu.xaml
     /// </summary>
     public partial class SpecialistMenu : Window
-    {
+    { 
+
         public SpecialistMenu()
         {
             InitializeComponent();
@@ -43,34 +44,37 @@ namespace Abilympics5
         // переходы по tabPage
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-
+            TabControl1.SelectedIndex = 0;
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-
+            TabControl1.SelectedIndex = 1;
         }
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
-
+            TabControl1.SelectedIndex = 2;
         }
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-
+            TabControl1.SelectedIndex = 3;
         }
 
         // закрытие формы
         private void Button5_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         // переход на форму ChangePassSp
         private void Button7_Click(object sender, RoutedEventArgs e)
         {
-
+            Window cps = new ChangePassSp();
+            Hide();
+            cps.ShowDialog();
+            Show();
         }
     }
 }

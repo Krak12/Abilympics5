@@ -34,6 +34,21 @@ namespace Abilympics5
             dbDataSetOrdersTableAdapter.Fill(dbDataSet.Orders);
             System.Windows.Data.CollectionViewSource ordersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ordersViewSource")));
             ordersViewSource.View.MoveCurrentToFirst();
+            // Загрузить данные в таблицу TypeAccount. Можно изменить этот код как требуется.
+            Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter dbDataSetTypeAccountTableAdapter = new Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter();
+            dbDataSetTypeAccountTableAdapter.Fill(dbDataSet.TypeAccount);
+            System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
+            typeAccountViewSource.View.MoveCurrentToFirst();
+            // Загрузить данные в таблицу TypeServices. Можно изменить этот код как требуется.
+            Abilympics5.dbDataSetTableAdapters.TypeServicesTableAdapter dbDataSetTypeServicesTableAdapter = new Abilympics5.dbDataSetTableAdapters.TypeServicesTableAdapter();
+            dbDataSetTypeServicesTableAdapter.Fill(dbDataSet.TypeServices);
+            System.Windows.Data.CollectionViewSource typeServicesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeServicesViewSource")));
+            typeServicesViewSource.View.MoveCurrentToFirst();
+            // Загрузить данные в таблицу Workers. Можно изменить этот код как требуется.
+            Abilympics5.dbDataSetTableAdapters.WorkersTableAdapter dbDataSetWorkersTableAdapter = new Abilympics5.dbDataSetTableAdapters.WorkersTableAdapter();
+            dbDataSetWorkersTableAdapter.Fill(dbDataSet.Workers);
+            System.Windows.Data.CollectionViewSource workersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("workersViewSource")));
+            workersViewSource.View.MoveCurrentToFirst();
         }
 
         // переходы по tabPage

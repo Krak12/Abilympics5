@@ -21,6 +21,8 @@ namespace Abilympics5
     {
         private string Pass = "";
 
+        public string TestText { get; set; } = "Gleb, Hello!";
+
         public WindowMain()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace Abilympics5
             if (users.Count == 0)
             {
                 MessageBox.Show("Неверный логин или пароль! Повторите попытку ввода.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             // переходы по формам зависящие от TypeAcc

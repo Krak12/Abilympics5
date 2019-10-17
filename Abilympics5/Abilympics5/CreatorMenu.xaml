@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="CreatorMenu"  Height="470" Width="920" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+        Title="Меню сотрудника"  Height="470" Width="920" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
     <Window.Resources>
         <local:dbDataSet x:Key="dbDataSet"/>
         <CollectionViewSource x:Key="ordersViewSource" Source="{Binding Orders, Source={StaticResource dbDataSet}}"/>
+        <CollectionViewSource x:Key="typeAccountViewSource" Source="{Binding TypeAccount, Source={StaticResource dbDataSet}}"/>
+        <CollectionViewSource x:Key="typeServicesViewSource" Source="{Binding TypeServices, Source={StaticResource dbDataSet}}"/>
+        <CollectionViewSource x:Key="workersViewSource" Source="{Binding Workers, Source={StaticResource dbDataSet}}"/>
     </Window.Resources>
 
     <Grid>
@@ -31,7 +34,7 @@
 
         <StackPanel Orientation="Vertical" Grid.Column="1" DataContext="{StaticResource ordersViewSource}">
             <TabControl Name="TabControl1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TabItem Name="TabPage1">
+                <TabItem Name="TabPage1" Visibility="Visible">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                         </StackPanel>
@@ -62,7 +65,7 @@
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Name="TabPage2">
+                <TabItem Name="TabPage2" Visibility="Visible">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                         </StackPanel>
@@ -71,7 +74,7 @@
                         <StackPanel>
                             <Label Name="label2" Content="Новая заявка" HorizontalAlignment="Center" Margin="10"/>
                             <Label Name="label3" Content="Тема" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0"/>
-                            <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" Margin="10,0" MinWidth="150"/>
+                            <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" Margin="10,0" MinWidth="150" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource typeServicesViewSource}}" SelectedValuePath="ID"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -90,7 +93,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
-                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="250"/>
+                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="250" DisplayMemberPath="Login" ItemsSource="{Binding Source={StaticResource workersViewSource}}" SelectedValuePath="ID"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <TextBox Name="TextBox1" HorizontalAlignment="Stretch" Margin="10,10,10,0" MinWidth="290"/>
@@ -103,7 +106,7 @@
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Name="TabPage3">
+                <TabItem Name="TabPage3" Visibility="Visible">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                         </StackPanel>
@@ -238,6 +241,7 @@
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>
+
             </TabControl>
         </StackPanel>
 

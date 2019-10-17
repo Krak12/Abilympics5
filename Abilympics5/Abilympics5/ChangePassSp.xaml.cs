@@ -23,5 +23,22 @@ namespace Abilympics5
         {
             InitializeComponent();
         }
+
+        // закрытие формы
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        /* сохранение значения поля TextBox и 
+         переход на форму SpecialistMenu*/
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            Data.ChangePassSp = TextBox3.Text;
+            Window sm = new SpecialistMenu();
+            Hide();
+            sm.ShowDialog();
+            Show();
+        }
     }
 }

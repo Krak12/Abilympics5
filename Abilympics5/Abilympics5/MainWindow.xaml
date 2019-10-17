@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="590" FontFamily="Comic Sans MS">
+        Title="Авторизация" Height="450" Width="590" FontFamily="Comic Sans MS">
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -13,9 +13,14 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Blue" Margin="0,0,5,0"/>
-        <Image Source="D:\Снимок.PNG" Margin="0,0,4,0" VerticalAlignment="Top"/>
-        
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Blue" Margin="0,0,5,0">
+
+            <StackPanel>
+                <Image Source="D:\Снимок.PNG" Margin="0,0,1,0" VerticalAlignment="Top"/>
+            </StackPanel>
+
+        </Grid>
+
         <StackPanel Orientation="Vertical" Grid.Column="1">
             <Label Name="label1" Content="Авторизация" HorizontalAlignment="Center" Margin="10"/>
             <TextBlock TextWrapping="Wrap" Name="label2" Text="Для продолжения работы, пожалуйста, авторизируйтесь" HorizontalAlignment="Center" Margin="10,0"/>

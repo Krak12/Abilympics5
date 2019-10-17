@@ -23,5 +23,22 @@ namespace Abilympics5
         {
             InitializeComponent();
         }
+
+        // закрытие формы
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        /* сохранение значения поля TextBox и 
+         переход на форму CreatorMenu*/
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            Data.ChangePassCr = TextBox3.Text;
+            Window cm = new CreatorMenu();
+            Hide();
+            cm.ShowDialog();
+            Show();
+        }
     }
 }
