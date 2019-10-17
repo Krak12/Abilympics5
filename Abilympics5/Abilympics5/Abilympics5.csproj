@@ -65,6 +65,9 @@
     <Compile Include="ChangePassSp.xaml.cs">
       <DependentUpon>ChangePassSp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangeProfile.xaml.cs">
+      <DependentUpon>ChangeProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreatorMenu.xaml.cs">
       <DependentUpon>CreatorMenu.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChangePassSp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
