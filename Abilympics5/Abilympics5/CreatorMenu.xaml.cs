@@ -81,5 +81,14 @@ namespace Abilympics5
             cpc.ShowDialog();
             Show();
         }
+
+        // переход на форму ChangeProfile
+        private void Button7_Click(object sender, RoutedEventArgs e)
+        {
+            Window cp = new ChangeProfile();
+            Hide();
+            cp.ShowDialog();
+            Show();
+        }
     }
 }
