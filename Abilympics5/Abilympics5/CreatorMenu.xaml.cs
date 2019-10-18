@@ -49,6 +49,16 @@ namespace Abilympics5
             dbDataSetWorkersTableAdapter.Fill(dbDataSet.Workers);
             System.Windows.Data.CollectionViewSource workersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("workersViewSource")));
             workersViewSource.View.MoveCurrentToFirst();
+
+            string result = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            TextBox2.Text = result;
+            TextBox3.Text = Data.UserAutorized.Login;
+            TextBox4.Text = Data.UserAutorized.Password;
+            TextBox5.Text = Data.UserAutorized.Surname;
+            TextBox6.Text = Data.UserAutorized.Name;
+            TextBox7.Text = Data.UserAutorized.Patronymic;
+            TextBox8.Text = Data.UserAutorized.Phone;
+            TextBox9.Text = Data.UserAutorized.Email;
         }
 
         // переходы по tabPage

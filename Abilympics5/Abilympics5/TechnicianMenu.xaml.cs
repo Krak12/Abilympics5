@@ -33,6 +33,21 @@ namespace Abilympics5
             dbDataSetOrdersTableAdapter.Fill(dbDataSet.Orders);
             System.Windows.Data.CollectionViewSource ordersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ordersViewSource")));
             ordersViewSource.View.MoveCurrentToFirst();
+            // Загрузить данные в таблицу TypeAccount. Можно изменить этот код как требуется.
+            Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter dbDataSetTypeAccountTableAdapter = new Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter();
+            dbDataSetTypeAccountTableAdapter.Fill(dbDataSet.TypeAccount);
+            System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
+            typeAccountViewSource.View.MoveCurrentToFirst();
+
+            string result = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            TextBox1.Text = result;
+            TextBox2.Text = Data.UserAutorized.Login;
+            TextBox3.Text = Data.UserAutorized.Password;
+            TextBox4.Text = Data.UserAutorized.Surname;
+            TextBox5.Text = Data.UserAutorized.Name;
+            TextBox6.Text = Data.UserAutorized.Patronymic;
+            TextBox7.Text = Data.UserAutorized.Phone;
+            TextBox8.Text = Data.UserAutorized.Email;
         }
 
         // переходы по tabPage
@@ -52,5 +67,12 @@ namespace Abilympics5
             Close();
         }
 
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+            Window cp = new ChangeProfile();
+            Hide();
+            cp.ShowDialog();
+            Show();
+        }
     }
 }

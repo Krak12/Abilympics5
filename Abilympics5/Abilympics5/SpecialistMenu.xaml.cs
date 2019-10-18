@@ -27,7 +27,6 @@ namespace Abilympics5
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             Abilympics5.dbDataSet dbDataSet = ((Abilympics5.dbDataSet)(this.FindResource("dbDataSet")));
             // Загрузить данные в таблицу Orders. Можно изменить этот код как требуется.
             Abilympics5.dbDataSetTableAdapters.OrdersTableAdapter dbDataSetOrdersTableAdapter = new Abilympics5.dbDataSetTableAdapters.OrdersTableAdapter();
@@ -39,6 +38,21 @@ namespace Abilympics5
             dbDataSetWorkersTableAdapter.Fill(dbDataSet.Workers);
             System.Windows.Data.CollectionViewSource workersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("workersViewSource")));
             workersViewSource.View.MoveCurrentToFirst();
+            // Загрузить данные в таблицу TypeAccount. Можно изменить этот код как требуется.
+            Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter dbDataSetTypeAccountTableAdapter = new Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter();
+            dbDataSetTypeAccountTableAdapter.Fill(dbDataSet.TypeAccount);
+            System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
+            typeAccountViewSource.View.MoveCurrentToFirst();
+
+            string result = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            TextBox1.Text = result;
+            TextBox2.Text = Data.UserAutorized.Login;
+            TextBox3.Text = Data.UserAutorized.Password;
+            TextBox4.Text = Data.UserAutorized.Surname;
+            TextBox5.Text = Data.UserAutorized.Name;
+            TextBox6.Text = Data.UserAutorized.Patronymic;
+            TextBox7.Text = Data.UserAutorized.Phone;
+            TextBox8.Text = Data.UserAutorized.Email;
         }
 
         // переходы по tabPage
@@ -74,6 +88,14 @@ namespace Abilympics5
             Window cps = new ChangePassSp();
             Hide();
             cps.ShowDialog();
+            Show();
+        }
+
+        private void Button8_Click(object sender, RoutedEventArgs e)
+        {
+            Window cp = new ChangeProfile();
+            Hide();
+            cp.ShowDialog();
             Show();
         }
     }
