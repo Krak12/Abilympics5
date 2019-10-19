@@ -12,5 +12,6 @@ namespace Abilympics5
         public static long UserID;
         public static string ChangePassCr;
         public static string ChangePassSp;
+        public static string ChangePassTh;
     }
 }

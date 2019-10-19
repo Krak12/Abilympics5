@@ -42,7 +42,7 @@
                     <TabItem.Content>
                         <StackPanel>
                             <Label Name="label1" Content="Мои заявки" HorizontalAlignment="Center" Margin="10"/>
-                            <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                            <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="creatorColumn" Binding="{Binding Creator}" Header="Создатель" Width="169"/>
                                     <DataGridTextColumn x:Name="typeServiceColumn" Binding="{Binding TypeService}" Header="Тема" Width="169"/>
@@ -93,7 +93,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
-                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="250" DisplayMemberPath="Login" ItemsSource="{Binding Source={StaticResource workersViewSource}}" SelectedValuePath="ID"/>
+                                    <ComboBox Name="ComboBox2" HorizontalAlignment="Stretch" Margin="10,10,50,0" MinWidth="250" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource workersViewSource}}" SelectedValuePath="ID"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <TextBox Name="TextBox1" HorizontalAlignment="Stretch" Margin="10,10,10,0" MinWidth="290"/>

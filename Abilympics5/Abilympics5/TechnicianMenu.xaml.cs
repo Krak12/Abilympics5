@@ -74,5 +74,13 @@ namespace Abilympics5
             cp.ShowDialog();
             Show();
         }
+
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            Window th = new ChangePassTh();
+            Hide();
+            th.ShowDialog();
+            Show();
+        }
     }
 }

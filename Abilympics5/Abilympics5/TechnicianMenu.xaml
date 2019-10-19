@@ -39,7 +39,7 @@
                     <TabItem.Content>
                         <StackPanel>
                             <Label Name="label1" Content="Заявки" HorizontalAlignment="Center" Margin="10"/>
-                            <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                            <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="creatorColumn" Binding="{Binding Creator}" Header="Создатель" Width="169"/>
                                     <DataGridTextColumn x:Name="typeServiceColumn" Binding="{Binding TypeService}" Header="Тема" Width="169"/>
@@ -115,7 +115,7 @@
                                     <TextBox Name="TextBox3" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="True"/>
                                 </Grid>
                                 <Grid Grid.Column="2">
-                                    <Button Name="Button4" Content="Изменить пароль" HorizontalAlignment="Stretch" Background="White" Margin="0,10,10,0"/>
+                                    <Button Name="Button4" Content="Изменить пароль" HorizontalAlignment="Stretch" Background="White" Margin="0,10,10,0" Click="Button4_Click"/>
                                 </Grid>
                             </Grid>
                             <Grid>
