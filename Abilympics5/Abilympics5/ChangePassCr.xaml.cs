@@ -27,18 +27,55 @@ namespace Abilympics5
         // закрытие формы
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (Data.UserAutorized.TypeAcc == 1)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 2)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 3)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
         }
 
-        /* сохранение значения поля TextBox и 
+        /* сохранение значения поля TextBox в переменную ChangePass и 
          переход на форму CreatorMenu*/
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            Data.ChangePassCr = TextBox3.Text;
-            Window cm = new CreatorMenu();
-            Hide();
-            cm.ShowDialog();
-            Show();
+            Data.ChangePass = TextBox3.Text;
+            if (Data.UserAutorized.TypeAcc == 1)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 2)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 3)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
         }
     }
 }

@@ -35,7 +35,7 @@
                 <Grid Grid.Column="0">
                     <Label Name="label2" Content="Тип аккаунта" HorizontalAlignment="Stretch" Margin="10,10"/>
                 </Grid>
-                <Grid Grid.Column="1" DataContext="{StaticResource typeAccountViewSource}">
+                <Grid Grid.Column="1">
                     <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" MinWidth="270" Margin="0,0,10,0" MaxHeight="40" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource typeAccountViewSource}}" SelectedValuePath="ID"/>
                 </Grid>
             </Grid>

@@ -50,8 +50,8 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource workersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("workersViewSource")));
             workersViewSource.View.MoveCurrentToFirst();
 
-            string result = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
-            TextBox2.Text = result;
+            //string result = dbDataSetWorkersTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            //TextBox2.Text = result;
             TextBox3.Text = Data.UserAutorized.Login;
             TextBox4.Text = Data.UserAutorized.Password;
             TextBox5.Text = Data.UserAutorized.Surname;
@@ -83,14 +83,31 @@ namespace Abilympics5
             Close();
         }
 
-        // переход на форму ChangePassCr
+        // переход на форму ChangePass
         private void Button6_Click(object sender, RoutedEventArgs e)
         {
-            Window cpc = new ChangePassCr();
-            Hide();
-            cpc.ShowDialog();
-            Show();
-        }
+            if (Data.UserAutorized.TypeAcc == 1)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 2)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 3)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
+        } 
 
         // переход на форму ChangeProfile
         private void Button7_Click(object sender, RoutedEventArgs e)

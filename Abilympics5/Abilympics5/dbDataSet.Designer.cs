@@ -2420,9 +2420,7 @@ namespace Abilympics5 {
                     this[this.tableWorkers.PhoneColumn] = value;
                 }
             }
-            gigihadid8655@yandex.ru
-
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Email {

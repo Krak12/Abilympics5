@@ -44,8 +44,8 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
             typeAccountViewSource.View.MoveCurrentToFirst();
 
-            string result = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
-            TextBox1.Text = result;
+            //string result = dbDataSetWorkersTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            //TextBox1.Text = result;
             TextBox2.Text = Data.UserAutorized.Login;
             TextBox3.Text = Data.UserAutorized.Password;
             TextBox4.Text = Data.UserAutorized.Surname;
@@ -53,6 +53,7 @@ namespace Abilympics5
             TextBox6.Text = Data.UserAutorized.Patronymic;
             TextBox7.Text = Data.UserAutorized.Phone;
             TextBox8.Text = Data.UserAutorized.Email;
+            
         }
 
         // переходы по tabPage
@@ -82,13 +83,30 @@ namespace Abilympics5
             Close();
         }
 
-        // переход на форму ChangePassSp
+        // переход на форму ChangePass
         private void Button7_Click(object sender, RoutedEventArgs e)
         {
-            Window cps = new ChangePassSp();
-            Hide();
-            cps.ShowDialog();
-            Show();
+            if (Data.UserAutorized.TypeAcc == 1)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 2)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 3)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
         }
 
         private void Button8_Click(object sender, RoutedEventArgs e)

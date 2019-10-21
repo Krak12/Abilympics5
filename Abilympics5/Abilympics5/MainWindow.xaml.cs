@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 namespace Abilympics5
 {
+    //gigihadid8655@yandex.ru
     /// <summary>
     /// Логика взаимодействия для WindowMain.xaml
     /// </summary>

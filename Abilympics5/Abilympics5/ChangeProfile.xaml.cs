@@ -91,7 +91,27 @@ namespace Abilympics5
         // закрытие формы
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (Data.UserAutorized.TypeAcc == 1)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 2)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 3)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
         }
 
         // сохранение изменений профиля
@@ -173,13 +193,7 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
             typeAccountViewSource.View.MoveCurrentToFirst();
 
-            
-            Abilympics5.dbDataSetTableAdapters.WorkersTableAdapter dbDataSetWorkersTableAdapter = new Abilympics5.dbDataSetTableAdapters.WorkersTableAdapter();
-            dbDataSetWorkersTableAdapter.Fill(dbDataSet.Workers);
-            System.Windows.Data.CollectionViewSource workersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("workersViewSource")));
-            workersViewSource.View.MoveCurrentToFirst();
-
-            ComboBox1.Text = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            //ComboBox1.Text = dbDataSetWorkersTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
             TextBox2.Text = Data.UserAutorized.Login;
             TextBox4.Text = Data.UserAutorized.Surname;
             TextBox5.Text = Data.UserAutorized.Name;

@@ -39,8 +39,8 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
             typeAccountViewSource.View.MoveCurrentToFirst();
 
-            string result = dbDataSetTypeAccountTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
-            TextBox1.Text = result;
+            //string result = dbDataSetWorkersTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            //TextBox1.Text = result;
             TextBox2.Text = Data.UserAutorized.Login;
             TextBox3.Text = Data.UserAutorized.Password;
             TextBox4.Text = Data.UserAutorized.Surname;
@@ -77,10 +77,27 @@ namespace Abilympics5
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-            Window th = new ChangePassTh();
-            Hide();
-            th.ShowDialog();
-            Show();
+            if (Data.UserAutorized.TypeAcc == 1)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 2)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (Data.UserAutorized.TypeAcc == 3)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
         }
     }
 }

@@ -10,8 +10,6 @@ namespace Abilympics5
     {
         public static dbDataSet.WorkersRow UserAutorized;
         public static long UserID;
-        public static string ChangePassCr;
-        public static string ChangePassSp;
-        public static string ChangePassTh;
+        public static string ChangePass;
     }
 }
