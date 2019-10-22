@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="Авторизация" Height="450" Width="590" FontFamily="Comic Sans MS">
+        Title="Авторизация" Height="450" Width="590" FontFamily="Comic Sans MS" WindowStyle="ToolWindow">
     
     <Grid>
         <Grid.ColumnDefinitions>

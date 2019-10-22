@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
-        Title="Редактирование профиля" Height="500" Width="920" FontFamily="Comic Sans MS" Loaded="Window_Loaded">
+        Title="Редактирование профиля" Height="450" Width="920" FontFamily="Comic Sans MS" Loaded="Window_Loaded" WindowStyle="ToolWindow">
     <Window.Resources>
         <local:dbDataSet x:Key="dbDataSet"/>
         <CollectionViewSource x:Key="typeAccountViewSource" Source="{Binding TypeAccount, Source={StaticResource dbDataSet}}"/>
@@ -36,7 +36,7 @@
                     <Label Name="label2" Content="Тип аккаунта" HorizontalAlignment="Stretch" Margin="10,10"/>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" MinWidth="270" Margin="0,0,10,0" MaxHeight="40" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource typeAccountViewSource}}" SelectedValuePath="ID"/>
+                    <ComboBox Name="ComboBox1" HorizontalAlignment="Stretch" MinWidth="270" Margin="0,0,10,0" MaxHeight="40" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource typeAccountViewSource}}" SelectedValuePath="ID" IsEnabledChanged="ComboBox1_IsEnabledChanged"/>
                 </Grid>
             </Grid>
             <Grid>
@@ -49,18 +49,6 @@
                 </Grid>
                 <Grid Grid.Column="1">
                     <TextBox Name="TextBox2" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="False"/>
-                </Grid>
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <Label Name="label4" Content="Пароль" HorizontalAlignment="Stretch" Margin="10,10"/>
-                </Grid>
-                <Grid Grid.Column="1">
-                    <TextBox Name="TextBox3" Margin="0,10,10,0" HorizontalAlignment="Stretch" MinWidth="270" IsReadOnly="False"/>
                 </Grid>
             </Grid>
             <Grid>
@@ -129,7 +117,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Button Name="Button1" Content="Назад" HorizontalAlignment="Left" Background="White" Click="Button1_Click" Margin="10,10,0,0"/>
+                    <Button Name="Button1" Content="Назад" HorizontalAlignment="Left" Background="White" Click="Button1_Click" Margin="10,10,0,0" Height="21" VerticalAlignment="Top"/>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Button Name="Button2" Content="Редактировать профиль" HorizontalAlignment="Right" Background="White" Click="Button2_Click" Margin="0,10,10,0"/>

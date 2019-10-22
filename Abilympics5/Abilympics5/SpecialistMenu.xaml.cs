@@ -44,8 +44,7 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
             typeAccountViewSource.View.MoveCurrentToFirst();
 
-            //string result = dbDataSetWorkersTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
-            //TextBox1.Text = result;
+            ComboBox3.SelectedIndex = Data.UserAutorized.TypeAcc - 1;
             TextBox2.Text = Data.UserAutorized.Login;
             TextBox3.Text = Data.UserAutorized.Password;
             TextBox4.Text = Data.UserAutorized.Surname;
@@ -86,27 +85,10 @@ namespace Abilympics5
         // переход на форму ChangePass
         private void Button7_Click(object sender, RoutedEventArgs e)
         {
-            if (Data.UserAutorized.TypeAcc == 1)
-            {
-                Window cm = new CreatorMenu();
-                Hide();
-                cm.ShowDialog();
-                Show();
-            }
-            else if (Data.UserAutorized.TypeAcc == 2)
-            {
-                Window sm = new SpecialistMenu();
-                Hide();
-                sm.ShowDialog();
-                Show();
-            }
-            else if (Data.UserAutorized.TypeAcc == 3)
-            {
-                Window tm = new TechnicianMenu();
-                Hide();
-                tm.ShowDialog();
-                Show();
-            }
+            Window cp = new ChangePassCr();
+            Hide();
+            cp.ShowDialog();
+            Show();
         }
 
         private void Button8_Click(object sender, RoutedEventArgs e)
@@ -115,6 +97,31 @@ namespace Abilympics5
             Hide();
             cp.ShowDialog();
             Show();
+        }
+
+        private void ComboBox3_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (ComboBox3.SelectedIndex == 0)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (ComboBox3.SelectedIndex == 1)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (ComboBox3.SelectedIndex == 2)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
         }
     }
 }

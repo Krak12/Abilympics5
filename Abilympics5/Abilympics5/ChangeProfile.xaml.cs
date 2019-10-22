@@ -41,7 +41,6 @@ namespace Abilympics5
             var fields = new TextBox[]
             {
                 TextBox2,
-                TextBox3,
                 TextBox4,
                 TextBox5
             };
@@ -123,6 +122,19 @@ namespace Abilympics5
                 return;
             }
 
+            if (TextBox7.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show("Заполните поле!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (TextBox8.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show("Заполните поле!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+
             dbDataSet.TypeAccountRow typeAccount = ((DataRowView)ComboBox1.SelectedItem).Row as dbDataSet.TypeAccountRow;
 
             typeaccount = typeAccount.ID;
@@ -140,7 +152,6 @@ namespace Abilympics5
                 }
             }
 
-            pass = TextBox3.Text;
             surname = TextBox4.Text;
             name = TextBox5.Text;
             patronymic = TextBox6.Text;
@@ -193,13 +204,43 @@ namespace Abilympics5
             System.Windows.Data.CollectionViewSource typeAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("typeAccountViewSource")));
             typeAccountViewSource.View.MoveCurrentToFirst();
 
-            //ComboBox1.Text = dbDataSetWorkersTableAdapter.GetDataByTypeAccount(Data.UserAutorized.TypeAcc).ToString();
+            ComboBox1.SelectedIndex = Data.UserAutorized.TypeAcc - 1;
             TextBox2.Text = Data.UserAutorized.Login;
             TextBox4.Text = Data.UserAutorized.Surname;
             TextBox5.Text = Data.UserAutorized.Name;
             TextBox6.Text = Data.UserAutorized.Patronymic;
             TextBox7.Text = Data.UserAutorized.Phone;
             TextBox8.Text = Data.UserAutorized.Email;
+        }
+
+        private void ComboBox1_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (ComboBox1.SelectedIndex == 0)
+            {
+                Window cm = new CreatorMenu();
+                Hide();
+                cm.ShowDialog();
+                Show();
+            }
+            else if (ComboBox1.SelectedIndex == 1)
+            {
+                Window sm = new SpecialistMenu();
+                Hide();
+                sm.ShowDialog();
+                Show();
+            }
+            else if (ComboBox1.SelectedIndex == 2)
+            {
+                Window tm = new TechnicianMenu();
+                Hide();
+                tm.ShowDialog();
+                Show();
+            }
+        }
+
+        private void ChangeProfile_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

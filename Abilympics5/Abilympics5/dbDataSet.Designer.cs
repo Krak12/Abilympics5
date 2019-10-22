@@ -36,9 +36,9 @@ namespace Abilympics5 {
         
         private global::System.Data.DataRelation relationFK_AssignedOrders_Orders;
         
-        private global::System.Data.DataRelation relationFK_AssignedOrders_Workers;
-        
         private global::System.Data.DataRelation relationFK_Orders_TypeServices;
+        
+        private global::System.Data.DataRelation relationFK_AssignedOrders_Workers;
         
         private global::System.Data.DataRelation relationFK_Orders_Workers;
         
@@ -301,8 +301,8 @@ namespace Abilympics5 {
                 }
             }
             this.relationFK_AssignedOrders_Orders = this.Relations["FK_AssignedOrders_Orders"];
-            this.relationFK_AssignedOrders_Workers = this.Relations["FK_AssignedOrders_Workers"];
             this.relationFK_Orders_TypeServices = this.Relations["FK_Orders_TypeServices"];
+            this.relationFK_AssignedOrders_Workers = this.Relations["FK_AssignedOrders_Workers"];
             this.relationFK_Orders_Workers = this.Relations["FK_Orders_Workers"];
             this.relationFK_Workers_TypeAccount = this.Relations["FK_Workers_TypeAccount"];
         }
@@ -329,14 +329,14 @@ namespace Abilympics5 {
                         this.tableOrders.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableAssignedOrders.OrderIDColumn}, false);
             this.Relations.Add(this.relationFK_AssignedOrders_Orders);
-            this.relationFK_AssignedOrders_Workers = new global::System.Data.DataRelation("FK_AssignedOrders_Workers", new global::System.Data.DataColumn[] {
-                        this.tableWorkers.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableAssignedOrders.TechnicianColumn}, false);
-            this.Relations.Add(this.relationFK_AssignedOrders_Workers);
             this.relationFK_Orders_TypeServices = new global::System.Data.DataRelation("FK_Orders_TypeServices", new global::System.Data.DataColumn[] {
                         this.tableTypeServices.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrders.TypeServiceColumn}, false);
             this.Relations.Add(this.relationFK_Orders_TypeServices);
+            this.relationFK_AssignedOrders_Workers = new global::System.Data.DataRelation("FK_AssignedOrders_Workers", new global::System.Data.DataColumn[] {
+                        this.tableWorkers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAssignedOrders.TechnicianColumn}, false);
+            this.Relations.Add(this.relationFK_AssignedOrders_Workers);
             this.relationFK_Orders_Workers = new global::System.Data.DataRelation("FK_Orders_Workers", new global::System.Data.DataColumn[] {
                         this.tableWorkers.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrders.CreatorColumn}, false);
@@ -4255,9 +4255,9 @@ SELECT ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email FRO
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT        ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Ema" +
-                "il\r\nFROM            Workers\r\nWHERE        (ID = @UserID)";
+                "il\r\nFROM            Workers\r\nWHERE        (ID = @ID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4328,9 +4328,9 @@ SELECT ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dbDataSet.WorkersDataTable GetDataByUserID(int UserID) {
+        public virtual dbDataSet.WorkersDataTable GetDataByUserID(int ID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(UserID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID));
             dbDataSet.WorkersDataTable dataTable = new dbDataSet.WorkersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

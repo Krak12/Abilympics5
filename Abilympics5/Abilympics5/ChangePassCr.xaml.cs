@@ -50,11 +50,11 @@ namespace Abilympics5
             }
         }
 
-        /* сохранение значения поля TextBox в переменную ChangePass и 
+        /* сохранение значения поля TextBox в переменную Password и 
          переход на форму CreatorMenu*/
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            Data.ChangePass = TextBox3.Text;
+            Data.UserAutorized.Password = TextBox3.Text;
             if (Data.UserAutorized.TypeAcc == 1)
             {
                 Window cm = new CreatorMenu();
