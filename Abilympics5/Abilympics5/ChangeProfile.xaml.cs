@@ -35,31 +35,31 @@ namespace Abilympics5
             InitializeComponent();
         }
 
-        private void Clear()
-        {
+        //private void Clear()
+        //{
 
-            var fields = new TextBox[]
-            {
-                TextBox2,
-                TextBox4,
-                TextBox5
-            };
+        //    var fields = new TextBox[]
+        //    {
+        //        TextBox2,
+        //        TextBox4,
+        //        TextBox5
+        //    };
 
-            var box = new ComboBox[]
-            {
-                 ComboBox1
-            };
+        //    var box = new ComboBox[]
+        //    {
+        //         ComboBox1
+        //    };
 
-            foreach (ComboBox cb in box)
-            {
-                cb.Text = String.Empty;
-            }
+        //    foreach (ComboBox cb in box)
+        //    {
+        //        cb.Text = String.Empty;
+        //    }
 
-            foreach (TextBox tb in fields)
-            {
-                tb.Text = String.Empty;
-            }
-        }
+        //    foreach (TextBox tb in fields)
+        //    {
+        //        tb.Text = String.Empty;
+        //    }
+        //}
 
         private void CheckPhone(string phone)
         {
@@ -116,6 +116,31 @@ namespace Abilympics5
         // сохранение изменений профиля
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
+            var userTA = new dbDataSetTableAdapters.WorkersTableAdapter();
+
+            var users = userTA.GetDataByWHEREPhoneIsNull();
+            var users1 = userTA.GetDataByWHEREPhoneIsNotNull();
+            if (users.Count == 0)
+            {
+                MessageBox.Show("Поле Phone пусто!", "Информация", MessageBoxButton.OK);
+            }
+            else if (users1.Count != 0)
+            {
+                MessageBox.Show("Поле Phone не пусто!", "Информация", MessageBoxButton.OK);
+            }
+
+            var users2 = userTA.GetDataByWHEREEmailIsNull();
+            var users3 = userTA.GetDataByWHEREEmailIsNotNull();
+            if (users2.Count == 0)
+            {
+                MessageBox.Show("Поле Email пусто!", "Информация", MessageBoxButton.OK);
+            }
+            else if (users3.Count != 0)
+            {
+                MessageBox.Show("Поле Email не пусто!", "Информация", MessageBoxButton.OK);
+            }
+
+
             if ((DataRowView)ComboBox1.SelectedItem == null)
             {
                 MessageBox.Show("Заполните поле!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -134,17 +159,16 @@ namespace Abilympics5
                 return;
             }
 
-
             dbDataSet.TypeAccountRow typeAccount = ((DataRowView)ComboBox1.SelectedItem).Row as dbDataSet.TypeAccountRow;
 
             typeaccount = typeAccount.ID;
             login = TextBox2.Text;
 
-            var userTA = new dbDataSetTableAdapters.WorkersTableAdapter();
+            var user1TA = new dbDataSetTableAdapters.WorkersTableAdapter();
 
             if (login != Data.UserAutorized.Login)
             {
-                var userDataTable = userTA.GetDataByLogin(login);
+                var userDataTable = user1TA.GetDataByLogin(login);
                 if (userDataTable.Count > 0) 
                 {
                     MessageBox.Show("Логин занят!", "", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -157,7 +181,6 @@ namespace Abilympics5
             patronymic = TextBox6.Text;
             CheckPhone(TextBox7.Text);
             CheckEmail(TextBox8.Text);
-
             Data.UserAutorized.TypeAcc = typeaccount;
             Data.UserAutorized.Login = login;
             Data.UserAutorized.Surname = surname;
@@ -196,7 +219,6 @@ namespace Abilympics5
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             Abilympics5.dbDataSet dbDataSet = ((Abilympics5.dbDataSet)(this.FindResource("dbDataSet")));
             // Загрузить данные в таблицу TypeAccount. Можно изменить этот код как требуется.
             Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter dbDataSetTypeAccountTableAdapter = new Abilympics5.dbDataSetTableAdapters.TypeAccountTableAdapter();
@@ -236,11 +258,6 @@ namespace Abilympics5
                 tm.ShowDialog();
                 Show();
             }
-        }
-
-        private void ChangeProfile_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

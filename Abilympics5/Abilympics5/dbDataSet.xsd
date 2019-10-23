@@ -377,6 +377,46 @@ WHERE        (ID = @ID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="Abilympics2019.dbo.Workers" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByWHEREEmailIsNotNull" GetMethodModifier="Public" GetMethodName="GetDataByWHEREEmailIsNotNull" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByWHEREEmailIsNotNull" UserSourceName="GetDataByWHEREEmailIsNotNull">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * 
+FROM dbo.Workers
+WHERE Email IS NOT NULL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="Abilympics2019.dbo.Workers" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByWHEREEmailIsNull" GetMethodModifier="Public" GetMethodName="GetDataByWHEREEmailIsNull" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByWHEREEmailIsNull" UserSourceName="GetDataByWHEREEmailIsNull">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * 
+FROM dbo.Workers
+WHERE Email IS NULL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="Abilympics2019.dbo.Workers" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByWHEREPhoneIsNotNull" GetMethodModifier="Public" GetMethodName="GetDataByWHEREPhoneIsNotNull" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByWHEREPhoneIsNotNull" UserSourceName="GetDataByWHEREPhoneIsNotNull">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email
+FROM            Workers
+WHERE        (Phone IS NOT NULL)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="Abilympics2019.dbo.Workers" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByWHEREPhoneIsNull" GetMethodModifier="Public" GetMethodName="GetDataByWHEREPhoneIsNull" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByWHEREPhoneIsNull" UserSourceName="GetDataByWHEREPhoneIsNull">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email
+FROM            Workers
+WHERE        (Phone IS NULL)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
         </Tables>
@@ -387,7 +427,7 @@ WHERE        (ID = @ID)</CommandText>
   <xs:element name="dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbDataSet" msprop:Generator_UserDSName="dbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AssignedOrders" msprop:Generator_TableClassName="AssignedOrdersDataTable" msprop:Generator_TableVarName="tableAssignedOrders" msprop:Generator_TablePropName="AssignedOrders" msprop:Generator_RowDeletingName="AssignedOrdersRowDeleting" msprop:Generator_RowChangingName="AssignedOrdersRowChanging" msprop:Generator_RowEvHandlerName="AssignedOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedOrdersRowDeleted" msprop:Generator_UserTableName="AssignedOrders" msprop:Generator_RowChangedName="AssignedOrdersRowChanged" msprop:Generator_RowEvArgName="AssignedOrdersRowChangeEvent" msprop:Generator_RowClassName="AssignedOrdersRow">
+        <xs:element name="AssignedOrders" msprop:Generator_TableClassName="AssignedOrdersDataTable" msprop:Generator_TableVarName="tableAssignedOrders" msprop:Generator_RowChangedName="AssignedOrdersRowChanged" msprop:Generator_TablePropName="AssignedOrders" msprop:Generator_RowDeletingName="AssignedOrdersRowDeleting" msprop:Generator_RowChangingName="AssignedOrdersRowChanging" msprop:Generator_RowEvHandlerName="AssignedOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedOrdersRowDeleted" msprop:Generator_RowClassName="AssignedOrdersRow" msprop:Generator_UserTableName="AssignedOrders" msprop:Generator_RowEvArgName="AssignedOrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OrderID" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_UserColumnName="OrderID" type="xs:long" />
@@ -395,7 +435,7 @@ WHERE        (ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_UserTableName="Orders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_RowEvArgName="OrdersRowChangeEvent" msprop:Generator_RowClassName="OrdersRow">
+        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_RowClassName="OrdersRow" msprop:Generator_UserTableName="Orders" msprop:Generator_RowEvArgName="OrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:long" />
@@ -413,7 +453,7 @@ WHERE        (ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TypeAccount" msprop:Generator_TableClassName="TypeAccountDataTable" msprop:Generator_TableVarName="tableTypeAccount" msprop:Generator_TablePropName="TypeAccount" msprop:Generator_RowDeletingName="TypeAccountRowDeleting" msprop:Generator_RowChangingName="TypeAccountRowChanging" msprop:Generator_RowEvHandlerName="TypeAccountRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeAccountRowDeleted" msprop:Generator_UserTableName="TypeAccount" msprop:Generator_RowChangedName="TypeAccountRowChanged" msprop:Generator_RowEvArgName="TypeAccountRowChangeEvent" msprop:Generator_RowClassName="TypeAccountRow">
+        <xs:element name="TypeAccount" msprop:Generator_TableClassName="TypeAccountDataTable" msprop:Generator_TableVarName="tableTypeAccount" msprop:Generator_RowChangedName="TypeAccountRowChanged" msprop:Generator_TablePropName="TypeAccount" msprop:Generator_RowDeletingName="TypeAccountRowDeleting" msprop:Generator_RowChangingName="TypeAccountRowChanging" msprop:Generator_RowEvHandlerName="TypeAccountRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeAccountRowDeleted" msprop:Generator_RowClassName="TypeAccountRow" msprop:Generator_UserTableName="TypeAccount" msprop:Generator_RowEvArgName="TypeAccountRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -427,7 +467,7 @@ WHERE        (ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TypeServices" msprop:Generator_TableClassName="TypeServicesDataTable" msprop:Generator_TableVarName="tableTypeServices" msprop:Generator_TablePropName="TypeServices" msprop:Generator_RowDeletingName="TypeServicesRowDeleting" msprop:Generator_RowChangingName="TypeServicesRowChanging" msprop:Generator_RowEvHandlerName="TypeServicesRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeServicesRowDeleted" msprop:Generator_UserTableName="TypeServices" msprop:Generator_RowChangedName="TypeServicesRowChanged" msprop:Generator_RowEvArgName="TypeServicesRowChangeEvent" msprop:Generator_RowClassName="TypeServicesRow">
+        <xs:element name="TypeServices" msprop:Generator_TableClassName="TypeServicesDataTable" msprop:Generator_TableVarName="tableTypeServices" msprop:Generator_RowChangedName="TypeServicesRowChanged" msprop:Generator_TablePropName="TypeServices" msprop:Generator_RowDeletingName="TypeServicesRowDeleting" msprop:Generator_RowChangingName="TypeServicesRowChanging" msprop:Generator_RowEvHandlerName="TypeServicesRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeServicesRowDeleted" msprop:Generator_RowClassName="TypeServicesRow" msprop:Generator_UserTableName="TypeServices" msprop:Generator_RowEvArgName="TypeServicesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -441,7 +481,7 @@ WHERE        (ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Workers" msprop:Generator_TableClassName="WorkersDataTable" msprop:Generator_TableVarName="tableWorkers" msprop:Generator_RowChangedName="WorkersRowChanged" msprop:Generator_TablePropName="Workers" msprop:Generator_RowDeletingName="WorkersRowDeleting" msprop:Generator_RowChangingName="WorkersRowChanging" msprop:Generator_RowEvHandlerName="WorkersRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkersRowDeleted" msprop:Generator_RowClassName="WorkersRow" msprop:Generator_UserTableName="Workers" msprop:Generator_RowEvArgName="WorkersRowChangeEvent">
+        <xs:element name="Workers" msprop:Generator_TableClassName="WorkersDataTable" msprop:Generator_TableVarName="tableWorkers" msprop:Generator_TablePropName="Workers" msprop:Generator_RowDeletingName="WorkersRowDeleting" msprop:Generator_RowChangingName="WorkersRowChanging" msprop:Generator_RowEvHandlerName="WorkersRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkersRowDeleted" msprop:Generator_UserTableName="Workers" msprop:Generator_RowChangedName="WorkersRowChanged" msprop:Generator_RowEvArgName="WorkersRowChangeEvent" msprop:Generator_RowClassName="WorkersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -523,11 +563,11 @@ WHERE        (ID = @ID)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_AssignedOrders_Orders" msdata:parent="Orders" msdata:child="AssignedOrders" msdata:parentkey="ID" msdata:childkey="OrderID" msprop:Generator_UserChildTable="AssignedOrders" msprop:Generator_ChildPropName="GetAssignedOrdersRows" msprop:Generator_UserRelationName="FK_AssignedOrders_Orders" msprop:Generator_RelationVarName="relationFK_AssignedOrders_Orders" msprop:Generator_UserParentTable="Orders" msprop:Generator_ParentPropName="OrdersRow" />
-      <msdata:Relationship name="FK_Orders_TypeServices" msdata:parent="TypeServices" msdata:child="Orders" msdata:parentkey="ID" msdata:childkey="TypeService" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_TypeServices" msprop:Generator_RelationVarName="relationFK_Orders_TypeServices" msprop:Generator_UserParentTable="TypeServices" msprop:Generator_ParentPropName="TypeServicesRow" />
-      <msdata:Relationship name="FK_AssignedOrders_Workers" msdata:parent="Workers" msdata:child="AssignedOrders" msdata:parentkey="ID" msdata:childkey="Technician" msprop:Generator_UserChildTable="AssignedOrders" msprop:Generator_ChildPropName="GetAssignedOrdersRows" msprop:Generator_UserRelationName="FK_AssignedOrders_Workers" msprop:Generator_ParentPropName="WorkersRow" msprop:Generator_RelationVarName="relationFK_AssignedOrders_Workers" msprop:Generator_UserParentTable="Workers" />
-      <msdata:Relationship name="FK_Orders_Workers" msdata:parent="Workers" msdata:child="Orders" msdata:parentkey="ID" msdata:childkey="Creator" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_Workers" msprop:Generator_ParentPropName="WorkersRow" msprop:Generator_RelationVarName="relationFK_Orders_Workers" msprop:Generator_UserParentTable="Workers" />
-      <msdata:Relationship name="FK_Workers_TypeAccount" msdata:parent="TypeAccount" msdata:child="Workers" msdata:parentkey="ID" msdata:childkey="TypeAcc" msprop:Generator_UserChildTable="Workers" msprop:Generator_ChildPropName="GetWorkersRows" msprop:Generator_UserRelationName="FK_Workers_TypeAccount" msprop:Generator_RelationVarName="relationFK_Workers_TypeAccount" msprop:Generator_UserParentTable="TypeAccount" msprop:Generator_ParentPropName="TypeAccountRow" />
+      <msdata:Relationship name="FK_AssignedOrders_Orders" msdata:parent="Orders" msdata:child="AssignedOrders" msdata:parentkey="ID" msdata:childkey="OrderID" msprop:Generator_UserChildTable="AssignedOrders" msprop:Generator_ChildPropName="GetAssignedOrdersRows" msprop:Generator_UserRelationName="FK_AssignedOrders_Orders" msprop:Generator_ParentPropName="OrdersRow" msprop:Generator_RelationVarName="relationFK_AssignedOrders_Orders" msprop:Generator_UserParentTable="Orders" />
+      <msdata:Relationship name="FK_Orders_TypeServices" msdata:parent="TypeServices" msdata:child="Orders" msdata:parentkey="ID" msdata:childkey="TypeService" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_TypeServices" msprop:Generator_ParentPropName="TypeServicesRow" msprop:Generator_RelationVarName="relationFK_Orders_TypeServices" msprop:Generator_UserParentTable="TypeServices" />
+      <msdata:Relationship name="FK_AssignedOrders_Workers" msdata:parent="Workers" msdata:child="AssignedOrders" msdata:parentkey="ID" msdata:childkey="Technician" msprop:Generator_UserChildTable="AssignedOrders" msprop:Generator_ChildPropName="GetAssignedOrdersRows" msprop:Generator_UserRelationName="FK_AssignedOrders_Workers" msprop:Generator_RelationVarName="relationFK_AssignedOrders_Workers" msprop:Generator_UserParentTable="Workers" msprop:Generator_ParentPropName="WorkersRow" />
+      <msdata:Relationship name="FK_Orders_Workers" msdata:parent="Workers" msdata:child="Orders" msdata:parentkey="ID" msdata:childkey="Creator" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_Workers" msprop:Generator_RelationVarName="relationFK_Orders_Workers" msprop:Generator_UserParentTable="Workers" msprop:Generator_ParentPropName="WorkersRow" />
+      <msdata:Relationship name="FK_Workers_TypeAccount" msdata:parent="TypeAccount" msdata:child="Workers" msdata:parentkey="ID" msdata:childkey="TypeAcc" msprop:Generator_UserChildTable="Workers" msprop:Generator_ChildPropName="GetWorkersRows" msprop:Generator_UserRelationName="FK_Workers_TypeAccount" msprop:Generator_ParentPropName="TypeAccountRow" msprop:Generator_RelationVarName="relationFK_Workers_TypeAccount" msprop:Generator_UserParentTable="TypeAccount" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

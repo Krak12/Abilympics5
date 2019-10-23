@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Abilympics5"
         mc:Ignorable="d"
         Title="Авторизация" Height="450" Width="590" FontFamily="Comic Sans MS" WindowStyle="ToolWindow">
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="226"/>
@@ -38,8 +38,25 @@
                 </Grid>
                 <CheckBox Grid.Column="1" Name="ShowPass" IsChecked="False" Margin="10,0,0,0" Content="Показать пароль" Checked="ShowPass_Checked" Unchecked="ShowPass_Unchecked"/>
             </Grid>
-            <CheckBox Name="CheckBox2" Content="Запомнить меня" IsChecked="False" HorizontalAlignment="Right" Margin="0,8,70,8"/>
-            <Button Name="Button1" Content="Вход" HorizontalAlignment="Center" Background="White" Click="Button1_Click"/>
+            <Grid Height="120">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="pack://siteoforigin:,,,/Resurces/89228.jpg" Margin="140,0,140,71" MaxHeight="37"/>
+                <Image Source="pack://siteoforigin:,,,/Resurces/43587.jpg" Margin="140,0,140,71" MaxHeight="37"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Margin="0,0,0,0">
+                        <CheckBox Name="CheckBox2" Content="Запомнить меня" IsChecked="False" HorizontalAlignment="Center" Margin="118,0,124,99"/>
+                    </Grid>
+                    <Button Name="Button1" Content="Вход" HorizontalAlignment="Center" Background="White" Click="Button1_Click" Width="60" Margin="152,23,144,71"/>
+                    <Label Name="label5" Content="Код:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="152,54,144,42" Height="24" Width="60" />
+                    <TextBox Name="TextBox3" HorizontalAlignment="Stretch" MinWidth="50" Margin="115,83,115,18"/>
+                </Grid>
+            </Grid>
         </StackPanel>
 
     </Grid>

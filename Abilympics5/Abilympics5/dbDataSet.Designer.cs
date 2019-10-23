@@ -4232,7 +4232,7 @@ SELECT ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email FROM" +
@@ -4258,6 +4258,24 @@ SELECT ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email FRO
                 "il\r\nFROM            Workers\r\nWHERE        (ID = @ID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT * \r\nFROM dbo.Workers\r\nWHERE Email IS NOT NULL";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT * \r\nFROM dbo.Workers\r\nWHERE Email IS NULL";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "SELECT        ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Ema" +
+                "il\r\nFROM            Workers\r\nWHERE        (Phone IS NOT NULL)";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "SELECT        ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Ema" +
+                "il\r\nFROM            Workers\r\nWHERE        (Phone IS NULL)";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4331,6 +4349,50 @@ SELECT ID, TypeAcc, Login, Password, Surname, Name, Patronymic, Phone, Email FRO
         public virtual dbDataSet.WorkersDataTable GetDataByUserID(int ID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID));
+            dbDataSet.WorkersDataTable dataTable = new dbDataSet.WorkersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dbDataSet.WorkersDataTable GetDataByWHEREEmailIsNotNull() {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            dbDataSet.WorkersDataTable dataTable = new dbDataSet.WorkersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dbDataSet.WorkersDataTable GetDataByWHEREEmailIsNull() {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            dbDataSet.WorkersDataTable dataTable = new dbDataSet.WorkersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dbDataSet.WorkersDataTable GetDataByWHEREPhoneIsNotNull() {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            dbDataSet.WorkersDataTable dataTable = new dbDataSet.WorkersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dbDataSet.WorkersDataTable GetDataByWHEREPhoneIsNull() {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             dbDataSet.WorkersDataTable dataTable = new dbDataSet.WorkersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
