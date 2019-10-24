@@ -41,19 +41,19 @@ namespace Abilympics5
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            TryLoginCount++;
+            //TryLoginCount++;
 
-            string login = TextBox1.Text;
-            string pass = PasswordBox1.Password;
+            //string login = TextBox1.Text;
+            //string pass = PasswordBox1.Password;
 
-            UpdateCapchaVisible();
+            //UpdateCapchaVisible();
 
-            bool tryLogin = Login(login, pass);
+            //bool tryLogin = Login(login, pass);
 
-            if (!tryLogin)
-            {
-                MessageBox.Show("Error!");
-            }
+            //if (!tryLogin)
+            //{
+            //    MessageBox.Show("Error!");
+            //}
 
             // настройка ввода логина или пароля
             var userTA = new dbDataSetTableAdapters.WorkersTableAdapter();
@@ -116,86 +116,86 @@ namespace Abilympics5
             Pass = TextBox2.Text;
         }
 
-        private bool Login(string login, string pass)
-        {
-            bool capchaSuccess = CapchaSuccess();
+        //private bool Login(string login, string pass)
+        //{
+        //    bool capchaSuccess = CapchaSuccess();
 
-            if (capchaSuccess && login == "123" && pass == "456")
-            {
-                TryLoginCount = 0;
+        //    if (capchaSuccess && login == "123" && pass == "456")
+        //    {
+        //        TryLoginCount = 0;
 
-                UpdateCapchaVisible();
+        //        UpdateCapchaVisible();
 
-                if (CheckBox2.Checked) RemindData.Remind(login, pass);
-                else RemindData.Clear();
+        //        if (CheckBox2.Checked) RemindData.Remind(login, pass);
+        //        else RemindData.Clear();
 
-                if (Data.UserAutorized.TypeAcc == 1)
-                {
-                    Window cm = new CreatorMenu();
-                    Hide();
-                    cm.ShowDialog();
-                    Show();
-                }
-                else if (Data.UserAutorized.TypeAcc == 2)
-                {
-                    Window sm = new SpecialistMenu();
-                    Hide();
-                    sm.ShowDialog();
-                    Show();
-                }
-                else if (Data.UserAutorized.TypeAcc == 3)
-                {
-                    Window tm = new TechnicianMenu();
-                    Hide();
-                    tm.ShowDialog();
-                    Show();
-                }
+        //        if (Data.UserAutorized.TypeAcc == 1)
+        //        {
+        //            Window cm = new CreatorMenu();
+        //            Hide();
+        //            cm.ShowDialog();
+        //            Show();
+        //        }
+        //        else if (Data.UserAutorized.TypeAcc == 2)
+        //        {
+        //            Window sm = new SpecialistMenu();
+        //            Hide();
+        //            sm.ShowDialog();
+        //            Show();
+        //        }
+        //        else if (Data.UserAutorized.TypeAcc == 3)
+        //        {
+        //            Window tm = new TechnicianMenu();
+        //            Hide();
+        //            tm.ShowDialog();
+        //            Show();
+        //        }
 
-                TextBox1.Text = "";
-                PasswordBox1.Password = "";
+        //        TextBox1.Text = "";
+        //        PasswordBox1.Password = "";
 
-                return true;
-            }
+        //        return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        private bool IsCapchaVisible()
-        {
-            return TryLoginCount >= 3;
-        }
+        //private bool IsCapchaVisible()
+        //{
+        //    return TryLoginCount >= 3;
+        //}
 
 
-        private bool CapchaSuccess()
-        {
-            if (IsCapchaVisible())
-            {
-                string codeText = TextBox3.Text;
-                int code;
+        //private bool CapchaSuccess()
+        //{
+        //    if (IsCapchaVisible())
+        //    {
+        //        string codeText = TextBox3.Text;
+        //        int code;
 
-                return int.TryParse(codeText, out code) && code == Capches[SelectedCapcha].code;
-            }
+        //        return int.TryParse(codeText, out code) && code == Capches[SelectedCapcha].code;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
-        private void UpdateCapchaVisible()
-        {
-            if (IsCapchaVisible())
-            {
-                panel1.Visible = true;
-                panel2.Location = new Point(panel2.Location.X, 260);
+        //private void UpdateCapchaVisible()
+        //{
+        //    if (IsCapchaVisible())
+        //    {
+        //        panel1.Visible = true;
+        //        panel2.Location = new Point(panel2.Location.X, 260);
 
-                textBox3.Clear();
+        //        textBox3.Clear();
 
-                SelectedCapcha = Rand.Next(Capches.Length);
-                pictureBox1.Image = Capches[SelectedCapcha].img;
-            }
-            else
-            {
-                panel1.Visible = false;
-                panel2.Location = new Point(panel2.Location.X, 185);
-            }
-        }
+        //        SelectedCapcha = Rand.Next(Capches.Length);
+        //        pictureBox1.Image = Capches[SelectedCapcha].img;
+        //    }
+        //    else
+        //    {
+        //        panel1.Visible = false;
+        //        panel2.Location = new Point(panel2.Location.X, 185);
+        //    }
+        //}
     }
 }

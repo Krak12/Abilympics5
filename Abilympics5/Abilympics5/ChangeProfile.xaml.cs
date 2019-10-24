@@ -61,31 +61,31 @@ namespace Abilympics5
         //    }
         //}
 
-        private void CheckPhone(string phone)
-        {
-            string pattern = @"^[+]\d\s\(\d{3}\)\s\d{3}[-]\d{2}[-]\d{2}$";
-            if (Regex.IsMatch(phone, pattern, RegexOptions.IgnoreCase))
-            {
-                MessageBox.Show("Телефон заполнен", "Информация", MessageBoxButton.OK);
-            }
-            else
-            {
-                MessageBox.Show("Заполните поле Телефон!", "Информация", MessageBoxButton.OK);
-            }
-        }
+        //private void CheckPhone(string phone)
+        //{
+        //    string pattern = @"^[+]\d\s\(\d{3}\)\s\d{3}[-]\d{2}[-]\d{2}$";
+        //    if (Regex.IsMatch(phone, pattern, RegexOptions.IgnoreCase))
+        //    {
+        //        MessageBox.Show("Поле Телефон заполнен", "Информация", MessageBoxButton.OK);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Заполните поле Телефон!", "Информация", MessageBoxButton.OK);
+        //    }
+        //}
 
-        private void CheckEmail(string email)
-        {
-            string pattern = @"[a-z0-9.-]+[@][a-z]+[.][a-z]+";
-            if (Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase))
-            {
-                MessageBox.Show("Email заполнен", "Информация", MessageBoxButton.OK);
-            }
-            else
-            {
-                MessageBox.Show("Заполните email!", "Информация", MessageBoxButton.OK);
-            }
-        }
+        //private void CheckEmail(string email)
+        //{
+        //    string pattern = @"[a-z0-9.-]+[@][a-z]+[.][a-z]+";
+        //    if (Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase))
+        //    {
+        //        MessageBox.Show("Поле Email заполнен", "Информация", MessageBoxButton.OK);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Заполните поле email!", "Информация", MessageBoxButton.OK);
+        //    }
+        //}
 
         // закрытие формы
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -179,8 +179,8 @@ namespace Abilympics5
             surname = TextBox4.Text;
             name = TextBox5.Text;
             patronymic = TextBox6.Text;
-            CheckPhone(TextBox7.Text);
-            CheckEmail(TextBox8.Text);
+            phone = TextBox7.Text;
+            email = TextBox8.Text;
             Data.UserAutorized.TypeAcc = typeaccount;
             Data.UserAutorized.Login = login;
             Data.UserAutorized.Surname = surname;
