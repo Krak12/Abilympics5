@@ -27,65 +27,37 @@ namespace Abilympics5
         public static string surname;
         public static string name;
         public static string patronymic;
-        public static string phone;
-        public static string email;
 
         public ChangeProfile()
         {
             InitializeComponent();
         }
 
-        //private void Clear()
-        //{
+        private void CheckPhone(string phone)
+        {
+            string pattern = @"^[+]\d\s\(\d{3}\)\s\d{3}[-]\d{2}[-]\d{2}$";
+            if (Regex.IsMatch(phone, pattern, RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Поле Телефон заполнено.", "Информация", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show("Заполните поле Телефон!", "Информация", MessageBoxButton.OK);
+            }
+        }
 
-        //    var fields = new TextBox[]
-        //    {
-        //        TextBox2,
-        //        TextBox4,
-        //        TextBox5
-        //    };
-
-        //    var box = new ComboBox[]
-        //    {
-        //         ComboBox1
-        //    };
-
-        //    foreach (ComboBox cb in box)
-        //    {
-        //        cb.Text = String.Empty;
-        //    }
-
-        //    foreach (TextBox tb in fields)
-        //    {
-        //        tb.Text = String.Empty;
-        //    }
-        //}
-
-        //private void CheckPhone(string phone)
-        //{
-        //    string pattern = @"^[+]\d\s\(\d{3}\)\s\d{3}[-]\d{2}[-]\d{2}$";
-        //    if (Regex.IsMatch(phone, pattern, RegexOptions.IgnoreCase))
-        //    {
-        //        MessageBox.Show("Поле Телефон заполнен", "Информация", MessageBoxButton.OK);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Заполните поле Телефон!", "Информация", MessageBoxButton.OK);
-        //    }
-        //}
-
-        //private void CheckEmail(string email)
-        //{
-        //    string pattern = @"[a-z0-9.-]+[@][a-z]+[.][a-z]+";
-        //    if (Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase))
-        //    {
-        //        MessageBox.Show("Поле Email заполнен", "Информация", MessageBoxButton.OK);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Заполните поле email!", "Информация", MessageBoxButton.OK);
-        //    }
-        //}
+        private void CheckEmail(string email)
+        {
+            string pattern = @"[a-z0-9.-]+[@][a-z]+[.][a-z]+";
+            if (Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Поле Email заполнено.", "Информация", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show("Заполните поле email!", "Информация", MessageBoxButton.OK);
+            }
+        }
 
         // закрытие формы
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -179,15 +151,15 @@ namespace Abilympics5
             surname = TextBox4.Text;
             name = TextBox5.Text;
             patronymic = TextBox6.Text;
-            phone = TextBox7.Text;
-            email = TextBox8.Text;
+            CheckPhone(TextBox7.Text);
+            CheckEmail(TextBox8.Text);
             Data.UserAutorized.TypeAcc = typeaccount;
             Data.UserAutorized.Login = login;
             Data.UserAutorized.Surname = surname;
             Data.UserAutorized.Name = name;
             Data.UserAutorized.Patronymic = patronymic;
-            Data.UserAutorized.Phone = phone;
-            Data.UserAutorized.Email = email;
+            Data.UserAutorized.Phone = TextBox7.Text;
+            Data.UserAutorized.Email = TextBox8.Text;
 
             userTA.Update(Data.UserAutorized);
 
