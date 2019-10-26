@@ -19,6 +19,7 @@ namespace Abilympics5
     /// </summary>
     public partial class ChangePassCr : Window
     {
+        public static string password;
         public ChangePassCr()
         {
             InitializeComponent();
@@ -54,7 +55,8 @@ namespace Abilympics5
          переход на форму CreatorMenu*/
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            Data.UserAutorized.Password = TextBox3.Text;
+            password = TextBox3.Text;
+            Data.UserAutorized.Password = password;
 
             MessageBoxResult result = MessageBox.Show("Изменение пароля прошло успешно!", "Информация", MessageBoxButton.OK);
             result = MessageBoxResult.OK;
