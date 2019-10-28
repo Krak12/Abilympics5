@@ -65,7 +65,7 @@ namespace Abilympics5
                 return;
             }
 
-            // переходы по формам зависящие от TypeAcc
+            // переходы по формам, зависящие от TypeAcc
             Data.UserAutorized = userTA.GetDataByLogin(TextBox1.Text.Trim()).First();
 
             if (Data.UserAutorized.TypeAcc == 1)
