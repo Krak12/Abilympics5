@@ -55,8 +55,7 @@ namespace Abilympics5
          переход на форму CreatorMenu*/
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            password = TextBox3.Text;
-            Data.UserAutorized.Password = password;
+            Data.UserAutorized.Password = TextBox3.Text;
 
             MessageBoxResult result = MessageBox.Show("Изменение пароля прошло успешно!", "Информация", MessageBoxButton.OK);
             result = MessageBoxResult.OK;
